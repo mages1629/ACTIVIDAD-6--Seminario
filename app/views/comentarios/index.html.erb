@@ -1,0 +1,60 @@
+<style>
+  body {
+    font-family: 'Georgia', serif; /* Fuente elegante */
+    text-align: center; /* Centrar el contenido */
+  }
+
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+
+  #comentarios {
+    margin: 0 auto;
+    width: 50%; /* Ajustar el ancho para centrar los comentarios */
+  }
+
+  .comentario-container {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+  }
+
+  .btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .btn:hover {
+    background-color: #45a049;
+  }
+</style>
+
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Comentarios" %>
+
+<h1>Comentarios</h1>
+
+<div id="comentarios">
+  <% @comentarios.each do |comentario| %>
+    <div class="comentario-container">
+      <%= render comentario %>
+      <p>
+        <%= link_to "Show this comentario", comentario, class: "btn" %>
+      </p>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "Nuevo Comentario", new_comentario_path, class: "btn" %>

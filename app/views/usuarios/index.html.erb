@@ -1,0 +1,61 @@
+<style>
+  body {
+    font-family: 'Georgia', serif;
+    text-align: center; /* Centrar el contenido */
+  }
+
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+
+  #usuarios {
+    margin: 0 auto;
+    width: 50%; /* Ajusta el ancho para centrar los usuarios */
+  }
+
+  .usuario-container {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+  }
+
+  .btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .btn:hover {
+    background-color: #45a049;
+  }
+
+</style>
+
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Usuarios" %>
+
+<h1>Usuarios </h1>
+
+<div id="usuarios">
+  <% @usuarios.each do |usuario| %>
+    <div class="usuario-container">
+      <%= render usuario %>
+      <p>
+        <%= link_to "Show this usuario", usuario, class: "btn" %>
+      </p>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "Nuevo Usuario", new_usuario_path, class: "btn" %>
